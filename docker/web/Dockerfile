@@ -6,14 +6,14 @@ RUN apt-get update
 RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/bcmath/ && ./install.sh
 RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/gd/ && ./install.sh
 RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/intl/ && ./install.sh
-RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/mcrypt/ && ./install.sh
+# RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/mcrypt/ && ./install.sh
 RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/pdo_mysql/ && ./install.sh
 RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/soap/ && ./install.sh
-RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/xsl/ && ./install.sh
-RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/zip/ && ./install.sh
+# RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/xsl/ && ./install.sh
+# RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/zip/ && ./install.sh
 RUN cd /usr/local/lib/thecodingmachine-php/extensions/current/xdebug/ && ./install.sh
 
-RUN sudo apt-get install php-xdebug -y
+# RUN sudo apt-get install php-xdebug -y
 
 RUN sudo apt autoremove && sudo apt autoclean
 RUN sudo apt update
@@ -50,7 +50,8 @@ ENV PHP_EXTENSION_BCMATH=1 \
     PHP_INI_MAX_INPUT_TIME=600000000 \
     PHP_INI_MAX_INPUT_NESTING_LEVEL=258000000 \
     PHP_INI_MAX_EXECUTION_TIME=18000000000 \
-    PHP_INI_POST_MAX_SIZE=100G
+    PHP_INI_POST_MAX_SIZE=1G \
+    PHP_INI_UPLOAD_MAX_FILESIZE=1G
 
 USER root
 
